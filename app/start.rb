@@ -12,7 +12,7 @@ get '/timing' do
     response = HTTP.get(params['url'])
     time = Time.now - start
 
-    json time: time, status: response.code, size: response.body.size
+    json time: time, status: response.code, size: response.to_s.size
   else
     json usage: 'pass a url query param'
   end
